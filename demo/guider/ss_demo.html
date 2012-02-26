@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<!-- File to show merchant integration with ShopSocially -->
+<head>
+    <!-- ShopSocially: Enter Merchant Name here -->
+    <title>ShopSocially Demo Store: Order Confirmation Page</title>
+
+    <!-- guiders.js requires jQuery as a prerequisite. Be sure to load guiders.js AFTER jQuery. -->
+    <script type="text/javascript" src="jquery-1.5.1.min.js"></script>
+    <script type="text/javascript" src="guiders-1.1.1.js"></script>
+    <link rel="stylesheet" href="guiders-1.1.1.css" type="text/css" />
+</head>
+
+<body>
+
+<div class="wrapper" style="background:url(https://d2mv1ym06m4kxq.cloudfront.net/thankyoupage.jpg) no-repeat; width: 800px; height:600px;">
+
+	<!-- ShopSocially Step #1 -->
+	<div id="ssFrame" style="position:absolute; top: 125px; left: 450px;"></div>
+        
+	<div class="merchent-logo" style="position: absolute; top: 33px; left: 35px;">
+          <img src="https://d1qbqkkh49kht1.cloudfront.net/32480c9163859678e77706916f26155f.png" />
+
+	</div>  
+</div>
+
+<!-- ShopSocially Step #2 -->
+                
+<div id="ssFrame"></div>
+<script language="javascript" type="text/javascript" src="https://shopsocially.com/js/all.js"></script>
+<script language="javascript" type="text/javascript">
+    ss_mi.init({partner_id: "d7c7d09cfedd4f659cb3d7aa8646a7b6"});
+    ss_mi.add_products([
+	    {
+	     prod_page_url: 'http://www.shopsocially.com', /*REQUIRED VARIABLE */
+	     prod_img_url: 'http://www.socialdemo.info/magento/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/n/i/nine-west-women-s-lucero-pump.jpg', /* REQUIRED VARIABLE */
+	     prod_title: 'Nine West Women`s Lucero Pump', /* REQUIRED VARIABLE */
+	     prod_currency: 'USD', /* OPTIONAL VARIABLE */
+	     prod_price: '89.99' /* OPTIONAL VARIABLE */
+	    },
+	    {
+	     prod_page_url: 'http://www.shopsocially.com', /* REQUIRED VARIABLE */
+	     prod_img_url: 'http://www.socialdemo.info/magento/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/a/c/acer-ferrari-3200-notebook-computer-pc.jpg', /* REQUIRED VARIABLE */
+	     prod_title: 'Acer Ferrari 3200 Notebook Computer PC', /* REQUIRED VARIABLE */
+	     prod_currency: 'USD', /* OPTIONAL VARIABLE */
+	     prod_price: '$1,799.99' /*OPTIONAL VARIABLE */
+	    }
+    ]);
+    ss_mi.load_ssFrame({div_id: 'ssFrame'});
+    function initialize_guiders(){
+	setTimeout(function(){
+	guiders.createGuider({
+	    attachTo:"#ssmi_container",
+	    buttons: [{name: "Next"}],
+	    description: "Shoppers are shown sharing window on your order confirmation page. You can customize incentives for shoppers to tell their friends about purchases made at your store. Give yourself a try by clicking on Share on Facebook",
+	    id: "first",
+	    next: "second",
+	    overlay: true,
+	    position: 5,
+	    title: "Sharing Window"
+	    }).show();
+	}, 5000);
+    }
+    $(document).ready(initialize_guiders);
+</script>
+</body>
+</html>
